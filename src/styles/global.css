@@ -1,4 +1,4 @@
-
+﻿
 :root {
 	--theme-color: #333333;
 	--theme-accent: #007cba;
@@ -124,9 +124,9 @@ tbody td:first-child {
 }
 thead th {
 	position: sticky;
-	top: 57px; /* サイトのヘッダー高さ(約57px)に合わせる */
+	top: 57px; /* 繧ｵ繧､繝医・繝倥ャ繝繝ｼ鬮倥＆(邏・7px)縺ｫ蜷医ｏ縺帙ｋ */
 	z-index: 10;
-	/* border-collapse のバグ対策として、擬似的に下線を引く */
+	/* border-collapse 縺ｮ繝舌げ蟇ｾ遲悶→縺励※縲∵闘莨ｼ逧・↓荳狗ｷ壹ｒ蠑輔￥ */
 	box-shadow: 0 1px 0 var(--border-color);
 }
 
@@ -192,8 +192,8 @@ thead th {
 }
 
 
-/* 見出しの装飾（派手すぎない・上品なスタイル） */
-.layout-main h2 {
+/* 隕句・縺励・陬・｣ｾ・域ｴｾ謇九☆縺弱↑縺・・荳雁刀縺ｪ繧ｹ繧ｿ繧､繝ｫ・・*/
+.prose h2 {
 	padding: 0.8rem 1rem;
 	background-color: #f7f9fa;
 	border-left: 5px solid var(--theme-accent);
@@ -204,7 +204,7 @@ thead th {
 	border-radius: 0 4px 4px 0;
 }
 
-.layout-main h3 {
+.prose h3 {
 	padding-bottom: 0.5rem;
 	border-bottom: 2px solid #e2e8f0;
 	font-size: 1.25rem;
@@ -212,7 +212,7 @@ thead th {
 	margin-bottom: 1.2rem;
 	position: relative;
 }
-.layout-main h3::after {
+.prose h3::after {
 	content: '';
 	position: absolute;
 	left: 0;
@@ -222,10 +222,11 @@ thead th {
 	background-color: var(--theme-accent);
 }
 
-.layout-main h4 {
+.prose h4 {
 	font-size: 1.1rem;
 	margin-top: 2rem;
 	margin-bottom: 1rem;
 	padding-left: 0.5rem;
 	border-left: 3px solid #cbd5e1;
 }
+
