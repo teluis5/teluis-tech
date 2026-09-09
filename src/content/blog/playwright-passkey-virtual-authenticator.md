@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Playwrightでパスキー（WebAuthn）認証を自動テストする！仮想オーセンティケーター完全攻略'
 description: 'PlaywrightとChrome DevTools Protocol (CDP) の仮想オーセンティケーター（Virtual Authenticator）を使い、パスキー（WebAuthn/FIDO2）の登録・ログインフローをE2Eテストで自動化する方法を徹底解説します。'
 pubDate: '2026-09-09'
