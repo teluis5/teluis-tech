@@ -193,6 +193,8 @@ thead th {
 
 
 /* 隕句・縺励・陬・｣ｾ・域ｴｾ謇九☆縺弱↑縺・・荳雁刀縺ｪ繧ｹ繧ｿ繧､繝ｫ・・*/
+
+/* 見出しの装飾（派手すぎない・上品なスタイル） */
 .prose h2 {
 	padding: 0.8rem 1rem;
 	background-color: #f7f9fa;
@@ -230,3 +232,9 @@ thead th {
 	border-left: 3px solid #cbd5e1;
 }
 
+.prose h5 {
+	font-size: 1.05rem;
+	font-weight: 700;
+	margin-top: 1.5rem;
+	margin-bottom: 0.8rem;
+}
