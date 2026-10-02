@@ -14,6 +14,7 @@ import { Icon } from 'astro-icon/components';
 type Props = CollectionEntry<'blog'>['data'] & { headings?: any[] };
 
 const { title, description, pubDate, updatedDate, heroImage, categories, headings } = Astro.props;
+const currentSlug = Astro.props.currentSlug || Astro.url.pathname.replace(/^\/blog\//, '').replace(/\/$/, '');
 
 const breadcrumbItems = [
 	{ label: 'ホーム', href: '/' },
@@ -299,17 +300,19 @@ const breadcrumbItems = [
 				<aside class="layout-sidebar">
 					<div class="widget box">
 						<div class="widget-title"><Icon name="heroicons:user" class="icon-inline" /> プロフィール</div>
-						<img class="profile-pic" src="/brand/teluis_avatar.jpg" alt="プロフィール逕ｻ蜒・ style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 1rem; background-color: var(--border-color); display: block; object-fit: cover;" />
+						<img class="profile-pic" src="/brand/teluis_avatar.jpg" alt="プロフィール画像" style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 1rem; background-color: var(--border-color); display: block; object-fit: cover;" />
 						<p class="profile-desc" style="font-size: 0.9rem; color: var(--text-main); text-align: left; line-height: 1.6;">
 							<strong>テックギーク / 開発者</strong><br/>
 							日系大手企業でキャリアをスタートし、AIスタートアップでの開発経験を経て、現在はコンサルティングファームに勤務。ビジネスマンに必要なスキルや、日々の業務で得た実践的なエッセンスを発信しています。
+						</p>
 					</div>
 
 					<div class="widget box">
 						<div class="widget-title"><Icon name="heroicons:users" class="icon-inline" /> TELUIS 妻</div>
-						<img class="profile-pic" src="/brand/teluis_avatar.jpg" alt="螯ｻプロフィール" style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 1rem; background-color: var(--border-color); display: block; object-fit: cover;" />
+						<img class="profile-pic" src="/brand/teluis_avatar.jpg" alt="妻プロフィール" style="width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 1rem; background-color: var(--border-color); display: block; object-fit: cover;" />
 						<p class="profile-desc" style="font-size: 0.9rem; color: var(--text-main); text-align: center; line-height: 1.6;">
 							共同運営者。<br/>時々記事を書いたりサポートしています。
+						</p>
 					</div>
 
 					<!-- サイドバー広告 -->
