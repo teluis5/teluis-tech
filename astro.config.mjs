@@ -1,4 +1,4 @@
-﻿// @ts-check
+// @ts-check
 
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
