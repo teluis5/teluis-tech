@@ -1,0 +1,110 @@
+---
+title: "【Gemini 4 Neon】料金・性能・Antigravity活用法"
+description: "Googleが2026年11月18日に発表した「Gemini 4 Neon」の技術・料金完全ガイド。入力$3/出力$15（キャッシュ95%OFF）、1Mコンテキスト、Artificial Analysis Coding Agent Index #1、Google AntigravityでのSWE-sweep 39.0%やHydrogen並列指揮法を詳しく解説します。"
+pubDate: "2026-11-19"
+categories: ["Gemini", "AI", "LLM", "アーキテクチャ"]
+heroImage: "./hero.jpg"
+---
+import ProblemBox from '../../../components/ProblemBox.astro';
+import ConclusionBox from '../../../components/ConclusionBox.astro';
+
+Googleは2026年11月18日（米国時間）、新モデル<b>「Gemini 4 Neon」</b>を正式発表しました。次世代Gemini 4ファミリーの中核を担うモデルです。
+
+最上位「Gemini 4 Carbon」に迫る知能を持ちます。さらにFlash級の高速応答と高いコスト効率を両立しました。
+
+<ProblemBox>
+- Gemini 4 NeonのAPI料金（入力・出力・キャッシュ割引）はいくらか？
+- CarbonやHydrogenと比べたベンチマーク性能や立ち位置はどう違う？
+- Google Antigravityやマルチエージェント構成でどう使い分けるべき？
+</ProblemBox>
+
+本記事ではGoogle DeepMind公式の一次データをもとに解説します。料金体系から主要ベンチマーク、実戦的な活用構成まで整理しました。
+
+---
+
+## 📊 Gemini 4 ファミリー比較表（Carbon / Neon / Hydrogen）
+
+Gemini 4世代は用途に応じて3つの階層に分かれています。Neonは「知能と速度・コスト」のバランスが最も優れた主力モデルです。
+
+| 比較項目 | Gemini 4 Carbon | Gemini 4 Neon（今回発表） | Gemini 4 Hydrogen |
+| :--- | :--- | :--- | :--- |
+| **主な役割** | 最難関・長期プロジェクト向け | **本番コーディング・分析・指揮官（Orchestrator）** | 日常タスク・並列サブエージェント向け |
+| **入力料金（1Mトークン）** | 高価格帯フラグシップ | **\$3.00** | \$1.50 |
+| **キャッシュ入力（1Mトークン）** | キャッシュ割引対応 | **\$0.15（95%割引）** | 暗黙キャッシュ対応 |
+| **出力料金（1Mトークン）** | 高価格帯フラグシップ | **\$15.00** | \$7.50 |
+| **コンテキスト長** | 大容量コンテキスト | **100万（1M）トークン** | 大容量コンテキスト |
+| **推奨ユースケース** | 超複雑な設計・長期研究 | 複雑な実装、データ分析、エージェント統括 | 高速な並列調査、定型処理、大量ファンアウト |
+
+コンテキストキャッシュを使えば、入力単価は**100万トークンあたり\$0.15（95%オフ）**まで下がります。巨大なコードベースや長文PDFを毎回読み込む処理で劇的なコスト削減が可能です。
+
+あわせて読みたい：[▶ 【Gemini 4 Hydrogen】トークン消費量と料金体系完全解説](/blog/2026-11-13-gemini-4-hydrogen-token-pricing-guide/)
+
+---
+
+## 🏆 圧倒的なベンチマーク実績（コーディング・実務・科学）
+
+Gemini 4 Neonは単なる安価な中間モデルではありません。主要インデックスで競合の大型モデルを上回るスコアを記録しています。
+
+### 1. コーディング＆エージェント実行能力
+- **Coding Agent Index**: 全体 **#1**（スコア **58.6**）
+- **Terminal-Bench 4.1**: **65.2%**
+- **FrontierCode 2.0**: **46.2%**（デフォルト `high` 設定時）
+- **SWE-sweep**: mini-SWE harnessで **12.8%**。Google Antigravity環境では **39.0%**（SOTA）へ急伸
+
+Antigravity環境で**SWE-sweep 39.0%**を達成した点は見逃せません。不要なファイル読み込みを減らし、長いセッションのコンテキスト圧縮を安定処理できます。
+
+### 2. エンタープライズ実務・数学・科学推論
+- **Intelligence Index**: 全体 **#3**（`xhigh` 設定時スコア **61**）
+- **Vals Index**: 全体 **#2**（**70.9%** / パレートフロンティア）
+- **Legal / Tax Bench**: Legal ResearchとTax Agentでともに **#1**
+- **Zapier AutomationBench**: 全体 **#1**（**56.3%**）
+- **Vending-Bench 2**: 全体 **#1**（**\$16,843**）
+- **Agent Arena Index**: スコア **1336**（全体 **#2**）。途中修正への追従性でも **#2**
+- **科学**: Terminal-Bench Science **70.5%**（クラス最高）
+- **数学**: RiemannBench **84.0%** / HLE-Diamond **71.3%**
+
+### 3. サイバーセキュリティ防御（Gemini 4 Neon for cyber）
+脆弱性の発見から検証、パッチ修正までの一連の工程でも高い性能を示しています。
+- **AutoBaxBench (Hard)**: **76%**（SOTA / Carbon超え）
+- **WebExploitBench v1.2**: **51.26%**（SOTA / 競合大型モデルの半額コスト）
+- **SEC-bench Pro**: **90.5%**（SOTA）
+- **CWE-bench v2**: **70.7%**（Carbon比 +3.4%）
+
+---
+
+## ⚙️ Thinking Level 4段階制御とコスト効率
+
+Gemini 4 Neonは4段階の **Thinking Level** を備えています。タスクの難易度に応じて、推論の深さとトークン消費量を細かく調整可能です。
+
+- **デフォルト設定（`high`）**: Carbonと同等クラスの知能を維持。**タスクあたりのコストはCarbon比32%削減**です。Vals Index等でも競合トップより**約50%〜80%低いコスト**を実現しました。
+- **最高設定（`xhigh`）**: 最も難解な技術計算向けのモード。最高知能スコアを出しつつ、競合モデルの最高設定より**36%以上安いコスト**で実行可能です。
+
+---
+
+## 🛠️ Google Antigravity での黄金構成：Neon × Hydrogen
+
+Gemini 4 Neonは単体でも強力です。さらにAntigravityのマルチエージェント環境では**「指揮官（Orchestrator）」**として真価を発揮します。
+
+1. **Orchestrator（Gemini 4 Neon）**: 全体の設計判断やタスク分解を担当。複数ファイルへの外科的編集（Surgical Edits）や軌道修正を行います。
+2. **Parallel Subagents（Gemini 4 Hydrogen）**: ファイル群の一斉調査やテスト実行を並列処理。定型コード生成も高速で回収します。
+
+安全性・アライメント面でも大幅な改善が図られています。Antigravity内部テストでは**捏造（ハルシネーション）率が過去最低**を記録しました。Terminal-Bench 4.0チート率は **0.0%**。Agent Honesty評価でも **99.2%パス** という高い信頼性です。
+
+---
+
+## 🚀 提供開始環境（今日から使える場所）
+
+Gemini 4 Neonは2026年11月18日より順次展開されています。
+
+- **Google AI Studio / Gemini API**（開発者向けAPI）
+- **Gemini for business**（APIおよびモデルドロップダウン）
+- **Google Antigravity**（Google AI Pro / Ultra 有料プラン契約者）
+- **Gemini アプリ**（Google AI Pro / Ultra 有料プラン契約者）
+
+---
+
+<ConclusionBox>
+- <b>価格革命</b>：入力\$3 / 出力\$15（1Mトークン）、キャッシュ入力は\$0.15（95%割引）
+- <b>実力</b>：Coding Agent Index #1、SWE-sweepはAntigravityで39.0%のSOTA記録
+- <b>推奨運用</b>：普段のメイン実装・オーケストレーターはNeon、並列サブタスクはHydrogenの使い分けが最適解
+</ConclusionBox>
